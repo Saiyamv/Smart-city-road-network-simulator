@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Smart City Road Network Simulator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="brand">
+      <span class="logo">🚦</span>
+      <span class="title">Smart City Road Simulator</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#" id="navHome">Simulator</a></li>
+      <li><a href="#about" id="navAbout">About Project</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <header class="header">
+      <h1>Smart City Road Network Simulator</h1>
+      <p class="description">
+        Model city intersections as a weighted graph and compute the optimal shortest path using 
+        <strong>Dijkstra's Algorithm</strong> and <strong>A* Heuristic Search</strong>.
+      </p>
+    </header>
+
+    <section class="control-panel card">
+      <div class="control-group">
+        <label for="start">Start Location:</label>
+        <select id="start"></select>
+      </div>
+
+      <button id="swapBtn" class="btn-icon" title="Swap Start and Destination" type="button">⇄</button>
+
+      <div class="control-group">
+        <label for="end">Destination:</label>
+        <select id="end"></select>
+      </div>
+
+      <div class="control-group">
+        <label for="algo">Algorithm:</label>
+        <select id="algo">
+          <option value="dijkstra">Dijkstra's Algorithm</option>
+          <option value="astar">A* Search Algorithm</option>
+          <option value="compare">Compare Both (Dijkstra vs A*)</option>
+        </select>
+      </div>
+
+      <div class="button-group">
+        <button id="findBtn" class="btn btn-primary">Find Shortest Route</button>
+        <button id="resetBtn" class="btn btn-secondary">Reset</button>
+      </div>
+    </section>
+
+    <section class="visualization-card card">
+      <div class="vis-header">
+        <h2>Interactive City Map</h2>
+        <div class="map-legend">
+          <span class="legend-item"><span class="legend-dot dot-start"></span> Start</span>
+          <span class="legend-item"><span class="legend-dot dot-dest"></span> Destination</span>
+          <span class="legend-item"><span class="legend-dot dot-path"></span> Route</span>
+          <span class="legend-item"><span class="legend-dot dot-node"></span> Node</span>
+        </div>
+      </div>
+      <p class="map-tip">💡 <strong>Interactive Map:</strong> Click any intersection node to select Start (green) or Destination (red).</p>
+      
+      <div class="svg-wrapper">
+        <svg id="map" viewBox="-11 -8.5 24 17" preserveAspectRatio="xMidYMid meet"></svg>
+      </div>
+      <div id="tooltip" class="tooltip"></div>
+    </section>
+
+    <section id="result" class="result card"></section>
+
+    <!-- About Project Modal -->
+    <div id="aboutModal" class="modal">
+      <div class="modal-content card">
+        <span class="modal-close" id="modalClose">&times;</span>
+        <h2>About Smart City Road Network Simulator</h2>
+        <p>This project is a <strong>Problem-Based Learning (PBL)</strong> system demonstrating graph data structures and shortest-path navigation algorithms.</p>
+        
+        <h3>Algorithms Implemented:</h3>
+        <ul>
+          <li><strong>Dijkstra's Algorithm:</strong> Explores nodes by cumulative distance using a Min-Heap Priority Queue. Guarantees the mathematical global shortest path on non-negative weighted graphs. Complexity: <code>O((V + E) log V)</code>.</li>
+          <li><strong>A* Search:</strong> Employs an admissible &amp; consistent scaled Euclidean heuristic <code>f(n) = g(n) + h(n)</code> to direct the search toward the destination, reducing the search space while guaranteeing the optimal route.</li>
+        </ul>
+
+        <h3>Architecture:</h3>
+        <ul>
+          <li><strong>High-Performance Engine:</strong> C++17 weighted adjacency graph model (<code>cpp/</code>).</li>
+          <li><strong>Backend API Bridge:</strong> Zero-dependency Node.js HTTP server (<code>backend/server.js</code>).</li>
+          <li><strong>Frontend Visualization:</strong> Interactive SVG rendering with dynamic route tracing &amp; offline client fallback (<code>frontend/</code>).</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>Smart City Road Network Simulator &bull; DSA Project</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

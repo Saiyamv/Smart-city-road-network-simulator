@@ -1,0 +1,11 @@
+{
+  "name": "smart-city-simulator-backend",
+  "version": "1.0.0",
+  "description": "Zero-dependency Node.js bridge for Smart City Road Network Simulator",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "MIT"
+}

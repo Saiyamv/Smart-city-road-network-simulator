@@ -1,0 +1,13 @@
+# Node modules
+node_modules/
+backend/node_modules/
+
+# C++ build artefacts
+*.exe
+cpp/simulator.exe
+cpp/*.o
+cpp/*.obj
+
+# Logs / temporary files
+*.log
+*.tmp

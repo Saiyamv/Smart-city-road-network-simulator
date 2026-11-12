@@ -1,0 +1,14 @@
+{
+  "name": "smart-city-road-network-simulator",
+  "version": "1.0.0",
+  "description": "Smart City Road Network Simulator with C++ graph engine, Node.js bridge, and interactive web visualization",
+  "private": true,
+  "scripts": {
+    "build": "g++ -std=c++17 cpp/main.cpp cpp/graph.cpp -o cpp/simulator.exe",
+    "build:root": "g++ -std=c++17 main.cpp graph.cpp -o simulator.exe",
+    "start": "node backend/server.js",
+    "test": "node tests/test_all_pairs.js"
+  },
+  "author": "",
+  "license": "MIT"
+}
